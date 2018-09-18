@@ -42,7 +42,7 @@ class Rol extends Entity
                     $permisos[] = $controller_rol;
                 }
             }
-            $arr_permisos = Hash::extract($permisos, '{n}.controller.controller_name');
+            $arr_permisos = Hash::extract($permisos, '{n}.controller.name');
             $arr_permisos = new Collection($arr_permisos);
             $str_permisos = $arr_permisos->reduce(function ($string, $permiso) {
                 return $string . $permiso . ', ';

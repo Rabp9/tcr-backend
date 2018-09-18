@@ -40,9 +40,6 @@ use Cake\Routing\Route\DashedRoute;
  * inconsistently cased URLs when used with `:plugin`, `:controller` and
  * `:action` markers.
  *
- * Cache: Routes are cached to improve performance, check the RoutingMiddleware
- * constructor in your `src/Application.php` file to change this behavior.
- *
  */
 Router::defaultRouteClass(DashedRoute::class);
 
@@ -78,6 +75,14 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->fallbacks('DashedRoute');
 });
 
+/**
+ * Load all plugin routes. See the Plugin documentation on
+ * how to customize the loading of plugin routes.
+ */
+/**
+ * Load all plugin routes. See the Plugin documentation on
+ * how to customize the loading of plugin routes.
+ */
 Router::scope('/', function ($routes) {
     $routes->extensions(['json']);
     
@@ -105,6 +110,118 @@ Router::scope('/', function ($routes) {
             ]
         ]
     ]);
+    $routes->resources('Cabeceras', [
+        'map' => [
+            'saveMany' => [
+                'action' => 'saveMany',
+                'method' => 'POST'
+            ],
+            'getData/:data' => [
+                'action' => 'getData',
+                'method' => 'GET'
+            ],
+            'getDataMany' => [
+                'action' => 'getDataMany',
+                'method' => 'POST'
+            ],
+            'getDataByData' => [
+                'action' => 'getDataByData',
+                'method' => 'POST'
+            ],
+            'previewImagen' => [
+                'action' => 'previewImagen',
+                'method' => 'POST'
+            ],
+            'getByDescripcion' => [
+                'action' => 'getByDescripcion',
+                'method' => 'GET'
+            ]
+        ]
+    ]);
+    $routes->resources('Slides', [
+        'map' => [
+            'previewImagen' => [
+                'action' => 'previewImagen',
+                'method' => 'POST'
+            ],
+            'getAdmin' => [
+                'action' => 'getAdmin',
+                'method' => 'GET'
+            ],
+            'saveMany' => [
+                'action' => 'saveMany',
+                'method' => 'POST'
+            ],
+        ]
+    ]);
+    $routes->resources('Clientes', [
+        'map' => [
+            'getAdmin' => [
+                'action' => 'getAdmin',
+                'method' => 'GET'
+            ],
+            'previewImagen' => [
+                'action' => 'previewImagen',
+                'method' => 'POST'
+            ]
+        ]
+    ]);
+    $routes->resources('Contactos', [
+        'map' => [
+            'getAdmin' => [
+                'action' => 'getAdmin',
+                'method' => 'GET'
+            ],
+            'previewImagen' => [
+                'action' => 'previewImagen',
+                'method' => 'POST'
+            ]
+        ]
+    ]);
+    $routes->resources('Eventos', [
+        'map' => [
+            'getAdmin' => [
+                'action' => 'getAdmin',
+                'method' => 'GET'
+            ],
+            'previewPortada' => [
+                'action' => 'previewPortada',
+                'method' => 'POST'
+            ],
+            'upload' => [
+                'action' => 'upload',
+                'method' => 'POST'
+            ],
+            'get_some/:amount' => [
+                'action' => 'getSome',
+                'method' => 'GET'
+            ],
+            'getIndex' => [
+                'action' => 'getIndex',
+                'method' => 'GET'
+            ]
+        ]
+    ]);
+    $routes->resources('Noticias', [
+        'map' => [
+            'getAdmin' => [
+                'action' => 'getAdmin',
+                'method' => 'GET'
+            ],
+            'previewPortada' => [
+                'action' => 'previewPortada',
+                'method' => 'POST'
+            ],
+            'upload' => [
+                'action' => 'upload',
+                'method' => 'POST'
+            ],
+            'get_some/:amount' => [
+                'action' => 'getSome',
+                'method' => 'GET'
+            ]
+        ]
+    ]);    
     $routes->resources('Roles', [
         'map' => [
             'getAdmin' => [
