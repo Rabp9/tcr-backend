@@ -192,7 +192,7 @@ Router::scope('/', function ($routes) {
                 'action' => 'upload',
                 'method' => 'POST'
             ],
-            'get_some/:amount' => [
+            'getSome/:amount' => [
                 'action' => 'getSome',
                 'method' => 'GET'
             ],
